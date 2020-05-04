@@ -9,5 +9,14 @@ before_install:
 
 script:
 - docker run -e CI=true fraenku/docker-react npm run test
-  
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-3"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-eu-west-3-112390586918"
+  bucket_path: "docker"
+  on: 
+    branch: master
   
